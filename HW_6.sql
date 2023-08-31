@@ -109,7 +109,7 @@ DELIMITER //
 CREATE TRIGGER Log_user AFTER INSERT ON users
 FOR EACH ROW
 BEGIN
-	DECLARE id_tbl INT;
+    DECLARE id_tbl INT;
     SELECT id INTO id_tbl FROM users ORDER BY id DESC LIMIT 1;
     INSERT INTO logs (table_name, id_user)
     VALUES ('users', id_tbl);
@@ -122,7 +122,7 @@ DELIMITER //
 CREATE TRIGGER Log_communities AFTER INSERT ON communities
 FOR EACH ROW
 BEGIN
-	DECLARE id_tbl INT;
+    DECLARE id_tbl INT;
     SELECT id INTO id_tbl FROM communities ORDER BY id DESC LIMIT 1;
     INSERT INTO logs (table_name, id_user)
     VALUES ('communities', id_tbl);
@@ -135,7 +135,7 @@ DELIMITER //
 CREATE TRIGGER Log_messagess AFTER INSERT ON messages
 FOR EACH ROW
 BEGIN
-	DECLARE id_tbl INT;
+    DECLARE id_tbl INT;
     SELECT id INTO id_tbl FROM messages ORDER BY id DESC LIMIT 1;
     INSERT INTO logs (table_name, id_user)
     VALUES ('messages', id_tbl);
