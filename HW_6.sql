@@ -64,8 +64,8 @@ SELECT * FROM users_old;
  С 6:00 до 12:00 функция должна возвращать фразу "Доброе утро", с 12:00 до 18:00 функция должна возвращать фразу "Добрый день",
  с 18:00 до 00:00 — "Добрый вечер", с 00:00 до 6:00 — "Доброй ночи".  */
  
- DROP FUNCTION IF EXISTS hello;
- DELIMITER //
+DROP FUNCTION IF EXISTS hello;
+DELIMITER //
 CREATE FUNCTION hello()
 RETURNS VARCHAR(20) NO SQL
 BEGIN
@@ -109,8 +109,8 @@ DELIMITER //
 CREATE TRIGGER Log_user AFTER INSERT ON users
 FOR EACH ROW
 BEGIN
-     DECLARE id_tbl INT;
-  SELECT id INTO id_tbl FROM users ORDER BY id DESC LIMIT 1;
+	DECLARE id_tbl INT;
+    SELECT id INTO id_tbl FROM users ORDER BY id DESC LIMIT 1;
     INSERT INTO logs (table_name, id_user)
     VALUES ('users', id_tbl);
 END//
@@ -122,8 +122,8 @@ DELIMITER //
 CREATE TRIGGER Log_communities AFTER INSERT ON communities
 FOR EACH ROW
 BEGIN
-     DECLARE id_tbl INT;
-  SELECT id INTO id_tbl FROM communities ORDER BY id DESC LIMIT 1;
+	DECLARE id_tbl INT;
+    SELECT id INTO id_tbl FROM communities ORDER BY id DESC LIMIT 1;
     INSERT INTO logs (table_name, id_user)
     VALUES ('communities', id_tbl);
 END//
@@ -135,8 +135,8 @@ DELIMITER //
 CREATE TRIGGER Log_messagess AFTER INSERT ON messages
 FOR EACH ROW
 BEGIN
-     DECLARE id_tbl INT;
-  SELECT id INTO id_tbl FROM messages ORDER BY id DESC LIMIT 1;
+	DECLARE id_tbl INT;
+    SELECT id INTO id_tbl FROM messages ORDER BY id DESC LIMIT 1;
     INSERT INTO logs (table_name, id_user)
     VALUES ('messages', id_tbl);
 END//
